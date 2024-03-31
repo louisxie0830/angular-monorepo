@@ -1,0 +1,14 @@
+<h1>Angular, Micro Frontends (Module Federation), and NX Monorepos - Shared Data, Libraries, and Builds</h1>
+<ul class="remote-menu">
+  <li><a routerLink="/">Home</a></li>
+  <li><a routerLink="cart">Cart</a></li>
+  <li><a routerLink="product">Product</a></li>
+</ul>
+
+<div>isLoggedIn: {{ isLoggedIn }}</div>
+
+<lib-button (click)="simulateLogin()" label="Login"></lib-button>
+<lib-button (click)="simulateLogout()" label="Logout"></lib-button>
+<br/>
+
+<router-outlet></router-outlet>

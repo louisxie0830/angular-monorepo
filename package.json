@@ -34,6 +34,7 @@
     "@nx/jest": "18.2.1",
     "@nx/js": "18.2.1",
     "@nx/web": "18.2.1",
+    "@nx/webpack": "18.2.1",
     "@nx/workspace": "18.2.1",
     "@schematics/angular": "~17.3.0",
     "@swc-node/register": "~1.8.0",

@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-monorepo/shared/data": ["libs/shared/data/src/index.ts"],
+      "@angular-monorepo/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "cart/Module": ["apps/cart/src/app/remote-entry/entry.module.ts"],
+      "product/Module": ["apps/product/src/app/remote-entry/entry.module.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
