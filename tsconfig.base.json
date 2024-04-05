@@ -19,6 +19,7 @@
       "@angular-monorepo/shared/pipe": ["libs/shared/pipe/src/index.ts"],
       "@angular-monorepo/shared/ui": ["libs/shared/ui/src/index.ts"],
       "cart/Module": ["apps/cart/src/app/remote-entry/entry.module.ts"],
+      "pokemon/Module": ["apps/pokemon/src/app/remote-entry/entry.module.ts"],
       "product/Module": ["apps/product/src/app/remote-entry/entry.module.ts"]
     }
   },

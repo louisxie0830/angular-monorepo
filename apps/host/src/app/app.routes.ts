@@ -1,7 +1,11 @@
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
+  {
+    path: 'pokemon',
+    loadChildren: () =>
+      import('pokemon/Module').then((m) => m.RemoteEntryModule),
+  },
   {
     path: 'product',
     loadChildren: () =>
@@ -13,6 +17,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: '',
-    component: NxWelcomeComponent,
+    redirectTo: '/pokemon',
+    pathMatch: 'full'
   },
 ];
