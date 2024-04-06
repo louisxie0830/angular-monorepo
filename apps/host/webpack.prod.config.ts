@@ -15,6 +15,7 @@ export default withModuleFederation({
    */
   remotes: [
     ['cart', '../cart/remoteEntry.mjs'],
-    ['product', '../product/remoteEntry.mjs']
+    ['product', '../product/remoteEntry.mjs'],
+    ['pokemon', '../pokemon/remoteEntry.mjs']
   ]
 });

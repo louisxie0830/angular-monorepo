@@ -1,0 +1,31 @@
+<div class="card">
+  <a class="card__link">
+    <div class="card__content">
+      <div class="card__header">
+        <h2 class="card__title">{{ pokemonData.name || 'loading...' }}</h2>
+        <ng-container *ngIf="pokemonData.types && pokemonData.types.length > 0">
+          <div class="card__tags">
+            <app-label
+              class="card__tag"
+              *ngFor="let item of pokemonData.types"
+              [name]="item?.type?.name"
+            />
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <ng-container *ngIf="pokemonData?.imgSrc">
+      <div class="card__image-container">
+        <span>
+          <img
+            class="card__image"
+            src="{{ pokemonData.imgSrc }}"
+            alt="{{ pokemonData.name }}"
+            decoding="async"
+            data-nimg="fill"
+          />
+        </span>
+      </div>
+    </ng-container>
+  </a>
+</div>

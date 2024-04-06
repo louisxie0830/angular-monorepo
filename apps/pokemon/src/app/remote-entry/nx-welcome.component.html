@@ -1,0 +1,28 @@
+<main>
+  <div>
+    <section class="container">
+      <h1 class="text-4xl text-center mb-8">pokemon</h1>
+      <ng-container
+        *ngIf="pokemonList && pokemonList.length > 0; else noDataTemplate"
+      >
+        <div class="grid">
+          <app-card
+            *ngFor="let item of pokemonList; trackBy: trackByItems"
+            [name]="item?.name"
+            [id]="item?.id"
+          />
+        </div>
+      </ng-container>
+      <ng-template #noDataTemplate>
+        <p>No Pokemon found.</p>
+      </ng-template>
+      <button
+        type="button"
+        (click)="loadMore(nextUrl)"
+        aria-label="Load more Pokemon"
+      >
+        load more
+      </button>
+    </section>
+  </div>
+</main>
