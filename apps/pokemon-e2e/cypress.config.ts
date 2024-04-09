@@ -4,6 +4,7 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
+    projectId: "bc2of3",
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
       webServerCommands: {
