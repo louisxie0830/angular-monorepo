@@ -63,6 +63,7 @@
     "lint-staged": "15.2.2",
     "nx": "18.2.1",
     "prettier": "^2.6.2",
+    "primeng": "17.13.0",
     "semantic-release": "21.1.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
@@ -74,7 +75,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,js}": [
+    "*.{html,ts,js}": [
       "npm run lint"
     ]
   }
