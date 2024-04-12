@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { remoteRoutes } from './entry.routes';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 @NgModule({
-  declarations: [RemoteEntryComponent, NxWelcomeComponent],
+  declarations: [RemoteEntryComponent, NxWelcomeComponent, TopBarComponent],
   imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
   providers: [],
+  exports: [TopBarComponent],
 })
 export class RemoteEntryModule {}
