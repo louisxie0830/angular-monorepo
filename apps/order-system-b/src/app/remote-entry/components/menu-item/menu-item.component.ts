@@ -5,7 +5,8 @@ import { Subscription, filter } from 'rxjs';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
-  selector: 'app-menu-item',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: '[app-menu-item]',
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss',
   animations: [
@@ -36,7 +37,7 @@ export class MenuItemComponent implements OnInit, OnDestroy {
 
   menuResetSubscription: Subscription;
 
-  key: string = "";
+  key = "";
 
   constructor(
     public router: Router,
@@ -60,17 +61,65 @@ export class MenuItemComponent implements OnInit, OnDestroy {
       this.active = false;
     });
 
-    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(params => {
-      if (this.item.routerLink) {
-
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      if (this.item?.routerLink) {
+        this.updateActiveStateFromRoute();
       }
     });
   }
 
+  updateActiveStateFromRoute() {
+    const activeRoute = this.router.isActive(this.item.routerLink[0], { paths: 'exact', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' });
+
+    if (activeRoute) {
+      this.menuService.onMenuStateChange({ key: this.key, routeEvent: true });
+    }
+  }
+
+  itemClick(event: Event) {
+    // avoid processing disabled items
+    if (this.item?.disabled) {
+      event.preventDefault();
+      return;
+    }
+
+    // execute command
+    if (this.item.command) {
+      this.item.command({ originalEvent: event, item: this.item });
+    }
+
+    // toggle active state
+    if (this.item.items) {
+      this.active = !this.active;
+    }
+
+    this.menuService.onMenuStateChange({ key: this.key });
+  }
+
+  get submenuAnimation() {
+    return this.root ? 'expanded' : (this.active ? 'expanded' : 'collapsed');
+  }
+
+  @HostBinding('class.active-menuitem')
+  get activeClass() {
+    return this.active && !this.root;
+  }
+
   ngOnInit(): void {
-    console.log('init');
+    console.log('this.item: ', this.item);
+    this.key = this.parentKey ? this.parentKey + '-' + this.index : String(this.index);
+
+    if (this.item?.routerLink) {
+      this.updateActiveStateFromRoute();
+    }
   }
   ngOnDestroy(): void {
-    console.log('destroy');
+    if (this.menuSourceSubscription) {
+      this.menuSourceSubscription.unsubscribe();
+    }
+
+    if (this.menuResetSubscription) {
+      this.menuResetSubscription.unsubscribe();
+    }
   }
 }

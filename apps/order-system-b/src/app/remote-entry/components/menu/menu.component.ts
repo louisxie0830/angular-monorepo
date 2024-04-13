@@ -11,9 +11,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.model = [
       {
-        label: 'Home',
+        label: '',
         items: [
-          { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
+          { label: '總覽管理', icon: 'pi pi-fw pi-th-large', routerLink: ['/'] },
+          { label: '訂單管理', icon: 'pi pi-fw pi-list', routerLink: ['/'] },
+          { label: '產品管理', icon: 'pi pi-fw pi-clone', routerLink: ['/'] },
+          { label: '銷售分析', icon: 'pi pi-fw pi-chart-pie', routerLink: ['/'] }
         ]
       }
     ];
