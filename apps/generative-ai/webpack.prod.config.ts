@@ -13,11 +13,4 @@ export default withModuleFederation({
    *   ['app2', 'https://app2.example.com'],
    * ]
    */
-  remotes: [
-    ['cart', '../cart/remoteEntry.mjs'],
-    ['product', '../product/remoteEntry.mjs'],
-    ['pokemon', '../pokemon/remoteEntry.mjs'],
-    ['order-system-b', '../order-system-b/remoteEntry.mjs'],
-    ['generative-ai', '../generative-ai/remoteEntry.mjs']
-  ]
 });

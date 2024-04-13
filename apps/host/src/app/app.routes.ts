@@ -2,6 +2,11 @@ import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
+    path: 'generative-ai',
+    loadChildren: () =>
+      import('generative-ai/Module').then((m) => m.RemoteEntryModule),
+  },
+  {
     path: 'order-system-f',
     loadChildren: () =>
       import('order-system-f/Module').then((m) => m.RemoteEntryModule),

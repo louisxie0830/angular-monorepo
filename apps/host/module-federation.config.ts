@@ -14,7 +14,14 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['cart', 'product', 'pokemon', 'order-system-b', 'order-system-f'],
+  remotes: [
+    'cart',
+    'product',
+    'pokemon',
+    'order-system-b',
+    'order-system-f',
+    'generative-ai',
+  ],
 };
 
 export default config;

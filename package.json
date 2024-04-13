@@ -36,6 +36,7 @@
     "@angular/cli": "~17.3.0",
     "@angular/compiler-cli": "~17.3.0",
     "@angular/language-service": "~17.3.0",
+    "@google/generative-ai": "0.6.0",
     "@nx/cypress": "18.2.1",
     "@nx/eslint": "18.2.1",
     "@nx/eslint-plugin": "18.2.1",
