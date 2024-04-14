@@ -1,0 +1,25 @@
+.gemini-pro {
+    display: flex;
+    align-content: space-between;
+
+    div {
+        flex-basis: 80%;
+    }
+
+    button {
+        margin-left: 20px;
+        flex-basis: 20%;
+    }
+
+    input {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        line-height: 1.25;
+        border-width: 1px;
+        border-radius: 0.25rem;
+        appearance: none;
+        width: 100%;
+    }
+}

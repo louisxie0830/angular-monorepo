@@ -5,10 +5,32 @@ import { RouterModule } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { remoteRoutes } from './entry.routes';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AiComponent } from './components/ai/ai.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GeminiProComponent } from './components/gemini-pro/gemini-pro.component';
 
 @NgModule({
-  declarations: [RemoteEntryComponent, NxWelcomeComponent],
-  imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
+  declarations: [
+    RemoteEntryComponent,
+    NxWelcomeComponent,
+    SettingsComponent,
+    AiComponent,
+    SettingComponent,
+    GeminiProComponent
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(remoteRoutes),
+  ],
   providers: [],
+  exports: [
+    SettingsComponent,
+    AiComponent,
+    SettingComponent,
+    GeminiProComponent,
+  ],
 })
-export class RemoteEntryModule {}
+export class RemoteEntryModule { }

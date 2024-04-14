@@ -1,0 +1,21 @@
+#ai {
+    padding: 2.5rem 2rem;
+
+    h2 {
+        font-weight: 500;
+        font-size: 1.25rem;
+        letter-spacing: -0.025em;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 10px;
+    }
+}
+
+.shadow {
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rounded {
+    border-radius: 1.5rem;
+}

@@ -8,19 +8,25 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/generative-ai",
         "index": "apps/generative-ai/src/index.html",
         "main": "apps/generative-ai/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/generative-ai/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/generative-ai/src/favicon.ico",
           "apps/generative-ai/src/assets"
         ],
-        "styles": ["apps/generative-ai/src/styles.scss"],
+        "styles": [
+          "apps/generative-ai/src/styles.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/generative-ai/webpack.config.ts"
@@ -83,7 +89,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/generative-ai/jest.config.ts"
       }

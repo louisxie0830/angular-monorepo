@@ -1,0 +1,90 @@
+<div id="settings" class="rounded shadow">
+  <ng-container *ngIf="genConfig$ | async as config">
+    <form [formGroup]="form">
+      <h2>Gemini Model parameters</h2>
+      <p>Safety</p>
+      <ng-container *ngFor="let safety of config.safetySettings">
+        <span class="category">{{ safety.category }}:</span>
+        <span class="threshold">{{ safety.threshold }}</span>
+      </ng-container>
+      <div style="margin-top: 10px">
+        <app-setting
+          [title]="'Temperature'"
+          [description]="tooltips.temperature"
+        >
+          <input
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            required
+            formControlName="temperature"
+          />
+        </app-setting>
+
+        <app-setting [title]="'Top K'" [description]="tooltips.top_k">
+          <input
+            type="number"
+            min="1"
+            step="1"
+            required
+            formControlName="top_k"
+          />
+        </app-setting>
+
+        <app-setting [title]="'Top P'" [description]="tooltips.top_p">
+          <input
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            required
+            formControlName="top_p"
+          />
+        </app-setting>
+      </div>
+      <div class="form-error">
+        <div *ngIf="form.controls.temperature.invalid">
+          <ng-container *ngIf="form.controls.temperature.errors?.['required']">
+            Value of Temperature is required
+          </ng-container>
+          <ng-container *ngIf="form.controls.temperature.errors?.['nan']">
+            Value of Temperature must be type of number
+          </ng-container>
+          <ng-container
+            *ngIf="form.controls.temperature.errors?.['numberTooSmall']"
+          >
+            Value of Temperature must be greater than or equals to 0
+          </ng-container>
+          <ng-container
+            *ngIf="form.controls.temperature.errors?.['numberTooBig']"
+          >
+            Value of Temperature must be smaller than or equals to 1
+          </ng-container>
+        </div>
+
+        <div *ngIf="form.controls.top_k.invalid">
+          <ng-container *ngIf="form.controls.top_k.errors?.['required']">
+            Value of Top K is required
+          </ng-container>
+          <ng-container *ngIf="form.controls.top_k.errors?.['min']">
+            Value of Top K must be greater than or equals to 1
+          </ng-container>
+        </div>
+
+        <div *ngIf="form.controls.top_p.invalid">
+          <ng-container *ngIf="form.controls.top_p.errors?.['required']">
+            Value of Top P is required
+          </ng-container>
+          <ng-container *ngIf="form.controls.top_p.errors?.['nan']">
+            Value of Top P must be type of number
+          </ng-container>
+          <ng-container *ngIf="form.controls.top_p.errors?.['numberTooSmall']">
+            Value of Top P must be greater than or equals to 0
+          </ng-container>
+          <ng-container *ngIf="form.controls.top_p.errors?.['numberTooBig']">
+            Value of Top P must be smaller than or equals to 1
+          </ng-container>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</div>
