@@ -1,7 +1,9 @@
 {
   "name": "@angular-monorepo/source",
   "version": "0.0.0",
+  "description": "angular-monorepo",
   "license": "MIT",
+  "author": "Nix Xie",
   "scripts": {
     "lint": "nx run-many --all --target=lint",
     "semantic-release": "semantic-release",
@@ -11,6 +13,20 @@
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louisxie0830/angular-monorepo.git"
+  },
+  "keywords": [
+    "angular",
+    "docker",
+    "nginx",
+    "typescript",
+    "cypress",
+    "nx",
+    "google-gemini",
+    "micro-frontend"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
