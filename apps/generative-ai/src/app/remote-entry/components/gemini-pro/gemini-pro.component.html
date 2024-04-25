@@ -8,7 +8,7 @@
       [formControl]="prompt"
     />
   </div>
-  <button type="button" (click)="sendText()">Send Text</button>
+  <button type="button" class="shadow" (click)="sendText()">Send Text</button>
 </div>
 <div>
   <ng-container *ngIf="isLoading; else responseTpl">

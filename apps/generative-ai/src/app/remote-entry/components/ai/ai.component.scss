@@ -19,3 +19,15 @@
 .rounded {
     border-radius: 1.5rem;
 }
+
+.button-group {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    button {
+        padding: 10px;
+        border-radius: 1.5rem;
+        margin: 5px;
+    }
+}

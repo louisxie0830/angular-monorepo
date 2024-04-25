@@ -10,6 +10,7 @@ import { AiComponent } from './components/ai/ai.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GeminiProComponent } from './components/gemini-pro/gemini-pro.component';
+import { GeminiProVisionComponent } from './components/gemini-pro-vision/gemini-pro-vision.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GeminiProComponent } from './components/gemini-pro/gemini-pro.component
     SettingsComponent,
     AiComponent,
     SettingComponent,
-    GeminiProComponent
+    GeminiProComponent,
+    GeminiProVisionComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { GeminiProComponent } from './components/gemini-pro/gemini-pro.component
     AiComponent,
     SettingComponent,
     GeminiProComponent,
+    GeminiProVisionComponent,
   ],
 })
-export class RemoteEntryModule { }
+export class RemoteEntryModule {}

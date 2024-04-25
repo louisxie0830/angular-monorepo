@@ -1,3 +1,24 @@
 <div id="ai" class="rounded shadow">
-  <app-gemini-pro></app-gemini-pro>
+  <div class="button-group">
+    <button
+      type="button"
+      class="shadow"
+      (click)="setConditionExpression('gemini-pro')"
+    >
+      Text
+    </button>
+    <button
+      type="button"
+      class="shadow"
+      (click)="setConditionExpression('gemini-pro-vision')"
+    >
+      Text & Image
+    </button>
+  </div>
+  <ng-container [ngSwitch]="conditionExpression">
+    <app-gemini-pro *ngSwitchCase="'gemini-pro'"></app-gemini-pro>
+    <app-gemini-pro-vision
+      *ngSwitchCase="'gemini-pro-vision'"
+    ></app-gemini-pro-vision>
+  </ng-container>
 </div>
