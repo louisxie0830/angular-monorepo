@@ -1,1 +1,61 @@
-<p>gemini-pro-vision works!</p>
+<div class="px-3 py-1">
+  <div>
+    <label
+      for="inputText"
+      class="block text-purple-700 text-sm font-bold mb-2"
+    ></label>
+    <input
+      type="text"
+      id="inputText"
+      name="inputText"
+      placeholder="Input prompt here"
+      class="w-full py-2 px-3 text-purple-700 leading-tight border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+      [formControl]="prompt"
+    />
+  </div>
+
+  <div class="flex flex-col my-2">
+    <label class="block" for="image">
+      <span class="sr-only">Choose image</span>
+      <input
+        type="file"
+        id="image"
+        #files
+        multiple
+        (change)="fileChangeEvent($event)"
+        class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+      />
+    </label>
+  </div>
+
+  <div *ngIf="!!preview" class="my-2">
+    <img class="h-auto max-h-96 max-w-full" [src]="preview" />
+  </div>
+
+  <button
+    type="button"
+    class="px-4 py-1 text-sm font-semibold border border-purple-200 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+    [ngClass]="{
+      'text-purple-300 bg-purple-300': prompt.invalid || !imageFile,
+      'text-purple-800 bg-purple-300 hover:text-white hover:bg-purple-600':
+        !prompt.invalid && imageFile
+    }"
+    [disabled]="prompt.invalid || !imageFile"
+    (click)="sendTextAndImages()"
+  >
+    Send Text And Images
+  </button>
+
+  <ng-container *ngIf="isLoading; else responseTpl">
+    <p class="my-2">Loading ...</p>
+  </ng-container>
+
+  <ng-template #responseTpl>
+    <div class="py-2">
+      <div *ngIf="!!promptText" class="py-1 bg-gray-300 rounded-md">
+        {{ promptText }}
+      </div>
+      <p [ngClass]="{ 'text-red-600': isBlocked }">{{ responseText }}</p>
+    </div>
+  </ng-template>
+</div>

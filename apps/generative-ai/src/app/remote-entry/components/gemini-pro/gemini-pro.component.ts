@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { GenerativeAiService } from '../../services/generative-ai.service';
 
@@ -17,7 +17,6 @@ export class GeminiProComponent {
 
   constructor(
     public formBuilder: FormBuilder,
-    private cdRef: ChangeDetectorRef,
     private generativeAiService: GenerativeAiService) { }
 
   async sendText() {
