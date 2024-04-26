@@ -11,6 +11,7 @@ import { SettingComponent } from './components/setting/setting.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GeminiProComponent } from './components/gemini-pro/gemini-pro.component';
 import { GeminiProVisionComponent } from './components/gemini-pro-vision/gemini-pro-vision.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { GeminiProVisionComponent } from './components/gemini-pro-vision/gemini-
     AiComponent,
     SettingComponent,
     GeminiProComponent,
-    GeminiProVisionComponent,
+    GeminiProVisionComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MarkdownModule.forRoot(),
     RouterModule.forChild(remoteRoutes),
   ],
   providers: [],
@@ -36,4 +38,4 @@ import { GeminiProVisionComponent } from './components/gemini-pro-vision/gemini-
     GeminiProVisionComponent,
   ],
 })
-export class RemoteEntryModule {}
+export class RemoteEntryModule { }

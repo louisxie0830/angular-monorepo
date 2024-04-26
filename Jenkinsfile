@@ -13,7 +13,7 @@ pipeline {
             }
           }
         }
-        stage('Build') {
+        stage('Install Dependencies') {
           steps {
             script {
               sh "npm -v"
@@ -21,6 +21,13 @@ pipeline {
               sh "npm run cy:verify"
               sh "npm run cy:info"
               sh "npm run cy:version"
+            }
+          }
+        }
+        stage('Run lint tests') {
+          steps {
+            script {
+              sh "npm run lint"
             }
           }
         }

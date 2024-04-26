@@ -17,14 +17,12 @@
 
   <ng-template #responseTpl>
     <div>
-      <div *ngIf="!!promptText">
-        {{ promptText }}
-      </div>
+      <div class="promptText" *ngIf="!!promptText">Me:{{ promptText }}</div>
       <ng-container *ngIf="isBlocked; else defaultResponse">
-        <p>{{ responseText }}</p>
+        <p [hidden]="!responseText">Gemini:{{ responseText }}</p>
       </ng-container>
       <ng-template #defaultResponse>
-        {{ responseText }}
+        <markdown [hidden]="!responseText">Gemini:{{ responseText }}</markdown>
       </ng-template>
     </div>
   </ng-template>
