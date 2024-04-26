@@ -1,14 +1,9 @@
 <div class="gemini-pro">
   <div>
     <label for="inputText"></label>
-    <input
-      type="text"
-      id="inputText"
-      placeholder="Inout prompt here"
-      [formControl]="prompt"
-    />
+    <input type="text" id="inputText" placeholder="Inout prompt here" [formControl]="prompt" />
   </div>
-  <button type="button" class="shadow" (click)="sendText()">Send Text</button>
+  <button type="button" class="shadow" [disabled]="prompt.invalid" (click)="sendText()">Send Text</button>
 </div>
 <div>
   <ng-container *ngIf="isLoading; else responseTpl">
