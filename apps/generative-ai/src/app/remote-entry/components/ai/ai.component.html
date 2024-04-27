@@ -2,9 +2,11 @@
   <div class="button-group">
     <button type="button" class="shadow" (click)="setConditionExpression('gemini-pro')">Text</button>
     <button type="button" class="shadow" (click)="setConditionExpression('gemini-pro-vision')">Text & Image</button>
+    <button type="button" class="shadow" (click)="setConditionExpression('gemini-pro-chat')">Chat</button>
   </div>
   <ng-container [ngSwitch]="conditionExpression">
     <app-gemini-pro *ngSwitchCase="'gemini-pro'"></app-gemini-pro>
     <app-gemini-pro-vision *ngSwitchCase="'gemini-pro-vision'"></app-gemini-pro-vision>
+    <app-gemini-pro-chat *ngSwitchCase="'gemini-pro-vision'"></app-gemini-pro-chat>
   </ng-container>
 </div>
