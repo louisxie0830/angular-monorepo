@@ -20,7 +20,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   genConfig$ = this.generativeAiService.genConfig$.pipe(
     tap(configs => {
-      console.table(configs);
       this.form.patchValue({
         temperature: configs.temperature,
         top_k: configs.top_k,
