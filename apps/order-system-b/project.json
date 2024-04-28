@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/order-system-b",
+        "baseHref": "/apps/order-system-b/",
         "index": "apps/order-system-b/src/index.html",
         "main": "apps/order-system-b/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/order-system-b/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/order-system-b/src/favicon.ico",
           "apps/order-system-b/src/assets"
         ],
-        "styles": ["apps/order-system-b/src/styles.scss"],
+        "styles": [
+          "apps/order-system-b/src/styles.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/order-system-b/webpack.config.ts"
@@ -83,7 +90,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/order-system-b/jest.config.ts"
       }

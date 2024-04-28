@@ -15,8 +15,8 @@ RUN npm ci
 
 COPY . .
 
-RUN npx nx reset && \
-  npx nx run host:build:production --baseHref=/apps/host/
+RUN npx nx reset && npx nx run-many --target=build --all
+
 
 FROM nginx:alpine
 

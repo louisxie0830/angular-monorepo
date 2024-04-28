@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "Nix Xie",
   "scripts": {
+    "build": "nx run-many --target=build --all --parallel --maxParallel=5",
     "lint": "nx run-many --all --target=lint",
     "e2e": "nx run-many --all --target=e2e",
     "semantic-release": "semantic-release",

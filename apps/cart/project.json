@@ -8,16 +8,26 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/cart",
+        "baseHref": "/apps/cart/",
         "index": "apps/cart/src/index.html",
         "main": "apps/cart/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/cart/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/cart/src/favicon.ico", "apps/cart/src/assets"],
-        "styles": ["apps/cart/src/styles.scss"],
+        "assets": [
+          "apps/cart/src/favicon.ico",
+          "apps/cart/src/assets"
+        ],
+        "styles": [
+          "apps/cart/src/styles.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/cart/webpack.config.ts"
@@ -80,7 +90,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/cart/jest.config.ts"
       }

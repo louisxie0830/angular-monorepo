@@ -8,16 +8,26 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/pokemon",
+        "baseHref": "/apps/pokemon/",
         "index": "apps/pokemon/src/index.html",
         "main": "apps/pokemon/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/pokemon/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/pokemon/src/favicon.ico", "apps/pokemon/src/assets"],
-        "styles": ["apps/pokemon/src/styles.scss"],
+        "assets": [
+          "apps/pokemon/src/favicon.ico",
+          "apps/pokemon/src/assets"
+        ],
+        "styles": [
+          "apps/pokemon/src/styles.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/pokemon/webpack.config.ts"
@@ -80,7 +90,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/pokemon/jest.config.ts"
       }
