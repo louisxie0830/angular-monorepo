@@ -13,7 +13,6 @@
       ],
       "options": {
         "outputPath": "dist/apps/pokemon",
-        "baseHref": "/apps/pokemon/",
         "index": "apps/pokemon/src/index.html",
         "main": "apps/pokemon/src/main.ts",
         "polyfills": [

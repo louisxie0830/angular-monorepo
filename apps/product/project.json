@@ -13,7 +13,6 @@
       ],
       "options": {
         "outputPath": "dist/apps/product",
-        "baseHref": "/apps/product/",
         "index": "apps/product/src/index.html",
         "main": "apps/product/src/main.ts",
         "polyfills": [

@@ -13,7 +13,6 @@
       ],
       "options": {
         "outputPath": "dist/apps/generative-ai",
-        "baseHref": "/apps/generative-ai/",
         "index": "apps/generative-ai/src/index.html",
         "main": "apps/generative-ai/src/main.ts",
         "polyfills": [

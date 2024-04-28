@@ -13,7 +13,6 @@
       ],
       "options": {
         "outputPath": "dist/apps/order-system-b",
-        "baseHref": "/apps/order-system-b/",
         "index": "apps/order-system-b/src/index.html",
         "main": "apps/order-system-b/src/main.ts",
         "polyfills": [
