@@ -31,7 +31,7 @@ RUN addgroup -g 1001 -S appuser && \
 USER appuser
 
 # Copy the Nginx configuration file
-COPY nginx.default.conf /etc/nginx/nginx.conf
+COPY nginx.default.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built application from the builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
