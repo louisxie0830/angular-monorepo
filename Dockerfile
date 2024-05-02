@@ -1,4 +1,4 @@
-FROM node:20-buster-slim as builder
+https://github.com/programmer-blog/weather-app-in-nodejs.gitFROM node:20-buster-slim as builder
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ COPY . .
 RUN npx nx reset && npx nx run-many --target=build --all
 
 
-FROM nginx:alpine
+FROM ghcr.io/rookie-luochao/nginx-runner:latest
 
 COPY nginx.default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
