@@ -18,7 +18,7 @@ COPY . .
 RUN npx nx reset && npx nx run-many --target=build --all
 
 
-FROM ghcr.io/rookie-luochao/nginx-runner:latest
+FROM nginx:alpine
 
 COPY nginx.default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
