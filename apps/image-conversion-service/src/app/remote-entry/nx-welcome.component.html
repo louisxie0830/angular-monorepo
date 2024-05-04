@@ -3,7 +3,7 @@
   <form class="mt-4">
     <div class="mb-3">
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button *ngIf="imagesSrc.length <= 0" type="button" class="btn btn-primary btn-lg" (click)="filesRef.click()">
+        <button type="button" class="btn btn-primary btn-lg" (click)="filesRef.click()">
           Select pictures
           <label for="formFile" class="form-label"></label>
           <input
@@ -16,8 +16,10 @@
             (change)="onFileSelected($event)"
           />
         </button>
-        <button *ngIf="imagesSrc.length > 0" type="button" class="btn btn-success btn-lg">Upload</button>
-        <button *ngIf="imagesSrc.length > 0" type="button" class="btn btn-danger btn-lg" (click)="delAllImage()">
+        <button [hidden]="imagesSrc.length <= 0" type="button" class="btn btn-success btn-lg" (click)="uploadImage()">
+          Upload
+        </button>
+        <button [hidden]="imagesSrc.length <= 0" type="button" class="btn btn-danger btn-lg" (click)="delAllImage()">
           Delete all image
         </button>
       </div>

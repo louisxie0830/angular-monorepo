@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { UploadService } from './services/upload.service';
 
 @Component({
   selector: 'app-nx-welcome',
@@ -8,8 +9,9 @@ import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/co
 })
 export class NxWelcomeComponent {
   imagesSrc: string[] = [];
-  @ViewChild('files') filesRef: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('filesRef') filesRef!: ElementRef;
 
+  constructor(private uploadService: UploadService) { }
 
   onFileSelected(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -28,9 +30,27 @@ export class NxWelcomeComponent {
 
   delAllImage() {
     this.imagesSrc = [];
+    this.filesRef.nativeElement.value = '';
   }
 
   delImageSrc(src: string) {
     this.imagesSrc = this.imagesSrc.filter((item) => item !== src);
+  }
+
+  uploadImage() {
+    const formData = new FormData();
+    for (let i = 0; i < this.filesRef.nativeElement.files.length; i++) {
+      formData.append('images', this.filesRef.nativeElement.files[i], this.filesRef.nativeElement.files[i].name);
+    }
+    this.uploadService.fetchUploadImage(formData).subscribe(blob => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'compressed_images.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      this.delAllImage();
+    });
   }
 }
