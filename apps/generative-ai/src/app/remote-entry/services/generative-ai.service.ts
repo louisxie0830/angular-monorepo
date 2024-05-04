@@ -49,6 +49,6 @@ export class GenerativeAiService {
   }
 
   constructor() {
-    this.googleGenerativeAI = new GoogleGenerativeAI('AIzaSyDqar1AoWpdCVRaeKO1CsMsmxbBW8z41Gc');
+    this.googleGenerativeAI = new GoogleGenerativeAI('');
   }
 }
