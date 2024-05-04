@@ -20,6 +20,7 @@
       "@angular-monorepo/shared/ui": ["libs/shared/ui/src/index.ts"],
       "cart/Module": ["apps/cart/src/app/remote-entry/entry.module.ts"],
       "generative-ai/Module": ["apps/generative-ai/src/app/remote-entry/entry.module.ts"],
+      "image-conversion-service/Module": ["apps/image-conversion-service/src/app/remote-entry/entry.module.ts"],
       "order-system-b/Module": ["apps/order-system-b/src/app/remote-entry/entry.module.ts"],
       "order-system-f/Module": ["apps/order-system-f/src/app/remote-entry/entry.module.ts"],
       "pokemon/Module": ["apps/pokemon/src/app/remote-entry/entry.module.ts"],

@@ -1,0 +1,10 @@
+{
+  "name": "image-conversion-service-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/image-conversion-service-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["image-conversion-service"],
+  "// targets": "to see all targets run: nx show project image-conversion-service-e2e --web",
+  "targets": {}
+}

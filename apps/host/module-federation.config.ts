@@ -21,6 +21,7 @@ const config: ModuleFederationConfig = {
     'order-system-b',
     'order-system-f',
     'generative-ai',
+    'image-conversion-service',
   ],
 };
 

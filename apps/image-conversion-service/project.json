@@ -1,9 +1,9 @@
 {
-  "name": "host",
+  "name": "image-conversion-service",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/host/src",
+  "sourceRoot": "apps/image-conversion-service/src",
   "tags": [],
   "targets": {
     "build": {
@@ -12,28 +12,27 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/host",
-        "baseHref": "/apps/host/",
-        "index": "apps/host/src/index.html",
-        "main": "apps/host/src/main.ts",
+        "outputPath": "dist/apps/image-conversion-service",
+        "index": "apps/image-conversion-service/src/index.html",
+        "main": "apps/image-conversion-service/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "apps/host/tsconfig.app.json",
+        "tsConfig": "apps/image-conversion-service/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/host/src/favicon.ico",
-          "apps/host/src/assets"
+          "apps/image-conversion-service/src/favicon.ico",
+          "apps/image-conversion-service/src/assets"
         ],
         "styles": [
-          "apps/host/src/styles.scss",
+          "apps/image-conversion-service/src/styles.scss",
           "node_modules/bootstrap/dist/css/bootstrap.min.css"
         ],
         "scripts": [
           "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
         ],
         "customWebpackConfig": {
-          "path": "apps/host/webpack.config.ts"
+          "path": "apps/image-conversion-service/webpack.config.ts"
         }
       },
       "configurations": {
@@ -52,7 +51,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/host/webpack.prod.config.ts"
+            "path": "apps/image-conversion-service/webpack.prod.config.ts"
           }
         },
         "development": {
@@ -67,17 +66,17 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:module-federation-dev-server",
+      "executor": "@nx/angular:dev-server",
       "options": {
-        "port": 4200,
-        "publicHost": "http://localhost:4200"
+        "port": 4207,
+        "publicHost": "http://localhost:4207"
       },
       "configurations": {
         "production": {
-          "buildTarget": "host:build:production"
+          "buildTarget": "image-conversion-service:build:production"
         },
         "development": {
-          "buildTarget": "host:build:development"
+          "buildTarget": "image-conversion-service:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -85,7 +84,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "host:build"
+        "buildTarget": "image-conversion-service:build"
       }
     },
     "lint": {
@@ -97,15 +96,24 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/host/jest.config.ts"
+        "jestConfig": "apps/image-conversion-service/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "host:build",
-        "port": 4200,
-        "spa": true
+        "buildTarget": "image-conversion-service:build",
+        "port": 4207,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "image-conversion-service:build:development"
+        },
+        "production": {
+          "buildTarget": "image-conversion-service:build:production"
+        }
       }
     }
   }

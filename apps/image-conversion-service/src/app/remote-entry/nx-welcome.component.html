@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="text-center">Compression Picture</h1>
+  <form class="mt-4">
+    <div class="mb-3">
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button *ngIf="imagesSrc.length <= 0" type="button" class="btn btn-primary btn-lg" (click)="filesRef.click()">
+          Select pictures
+          <label for="formFile" class="form-label"></label>
+          <input
+            #filesRef
+            class="form-control"
+            style="display: none"
+            type="file"
+            accept="image/*"
+            multiple
+            (change)="onFileSelected($event)"
+          />
+        </button>
+        <button *ngIf="imagesSrc.length > 0" type="button" class="btn btn-success btn-lg">Upload</button>
+        <button *ngIf="imagesSrc.length > 0" type="button" class="btn btn-danger btn-lg" (click)="delAllImage()">
+          Delete all image
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container text-center">
+  <div class="row align-items-end">
+    <ng-container *ngFor="let imgSrc of imagesSrc">
+      <div class="col-2">
+        <img [src]="imgSrc" class="img-thumbnail" />
+        <div class="d-grid gap-2">
+          <button class="btn btn-secondary" type="button" (click)="delImageSrc(imgSrc)">Del</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
